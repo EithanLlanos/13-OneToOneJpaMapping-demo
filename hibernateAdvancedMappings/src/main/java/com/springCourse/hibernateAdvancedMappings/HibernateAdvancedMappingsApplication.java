@@ -19,12 +19,19 @@ public class HibernateAdvancedMappingsApplication {
     public CommandLineRunner commandLineRunner(AppDAO appDAO) {
         return runner -> {
 //            createInstructor(appDAO);
-            findInstructor(appDAO);
+//            findInstructor(appDAO);
+            deleteInstructor(appDAO);
         };
     }
 
+    private void deleteInstructor(AppDAO appDAO) {
+        int theId = 2;
+        appDAO.deleteInstructorById(theId);
+
+    }
+
     private void findInstructor(AppDAO appDAO) {
-        int theId = 1;
+        int theId = 2;
         System.out.println("Finding instructor id: " + theId);
 
         Instructor tempInstructor = appDAO.findInstructorById(theId);
@@ -34,10 +41,10 @@ public class HibernateAdvancedMappingsApplication {
 
     private void createInstructor(AppDAO appDAO) {
         // create the instructor
-        Instructor tempInstructor = new Instructor("Chad", "Darby", "darby@luv2code.com");
+        Instructor tempInstructor = new Instructor("Arath", "Mitrao", "arath@luv2code.com");
 
         // create the instructor email
-        InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "Luv2Ccode");
+        InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "Piano");
 
         // associate the object
         tempInstructor.setInstructorDetail(tempInstructorDetail);
