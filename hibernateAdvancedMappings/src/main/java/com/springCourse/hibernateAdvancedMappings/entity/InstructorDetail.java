@@ -3,7 +3,7 @@ package com.springCourse.hibernateAdvancedMappings.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "instructor_detail)")
+@Table(name = "instructor_detail")
 public class InstructorDetail {
     // Annotate the class as an entity and map to db table
     // Define the fields

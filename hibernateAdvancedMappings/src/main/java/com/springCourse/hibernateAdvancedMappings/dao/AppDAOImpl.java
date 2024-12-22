@@ -3,7 +3,9 @@ package com.springCourse.hibernateAdvancedMappings.dao;
 import com.springCourse.hibernateAdvancedMappings.entity.Instructor;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AppDAOImpl implements AppDAO {
     private final EntityManager entityManager;
 

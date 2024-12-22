@@ -1,5 +1,8 @@
 package com.springCourse.hibernateAdvancedMappings;
 
+import com.springCourse.hibernateAdvancedMappings.dao.AppDAO;
+import com.springCourse.hibernateAdvancedMappings.entity.Instructor;
+import com.springCourse.hibernateAdvancedMappings.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +16,26 @@ public class HibernateAdvancedMappingsApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner() {
+    public CommandLineRunner commandLineRunner(AppDAO appDAO) {
         return runner -> {
-            System.out.println("Hello World");
+            createInstructor(appDAO);
         };
+    }
+
+    private void createInstructor(AppDAO appDAO) {
+        // create the instructor
+        Instructor tempInstructor = new Instructor("Chad", "Darby", "darby@luv2code.com");
+
+        // create the instructor email
+        InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "Luv2Ccode");
+
+        // associate the object
+        tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+        // save the instructor - this will also save the details object because of cascadeType.ALL
+        System.out.println("Saving instructor: " + tempInstructor);
+        appDAO.save(tempInstructor);
+
     }
 
 }
