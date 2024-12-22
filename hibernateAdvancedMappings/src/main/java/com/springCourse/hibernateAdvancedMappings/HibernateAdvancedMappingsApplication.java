@@ -20,8 +20,17 @@ public class HibernateAdvancedMappingsApplication {
         return runner -> {
 //            createInstructor(appDAO);
 //            findInstructor(appDAO);
-            deleteInstructor(appDAO);
+//            deleteInstructor(appDAO);
+            findInstructorDetail(appDAO);
         };
+    }
+
+    private void findInstructorDetail(AppDAO appDAO) {
+        int theId = 1;
+        System.out.println("Finding instructor detail id: " + theId);
+        InstructorDetail tempInstructorDetail = appDAO.findInstructorDetailById(theId);
+        System.out.println("tempInstructorDetail: " + tempInstructorDetail);
+        System.out.println("the associated instructor: " + tempInstructorDetail.getInstructor());
     }
 
     private void deleteInstructor(AppDAO appDAO) {

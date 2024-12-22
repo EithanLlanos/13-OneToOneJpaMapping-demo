@@ -9,6 +9,10 @@ public class InstructorDetail {
     // Define the fields
     // Annotate the fields with db column name
 
+
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    private Instructor instructor;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -34,6 +38,14 @@ public class InstructorDetail {
 
     // Generate setter/getter methods
 
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
+    
     public int getId() {
         return id;
     }

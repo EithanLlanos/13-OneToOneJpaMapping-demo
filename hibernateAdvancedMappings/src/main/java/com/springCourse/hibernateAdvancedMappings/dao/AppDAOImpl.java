@@ -1,6 +1,7 @@
 package com.springCourse.hibernateAdvancedMappings.dao;
 
 import com.springCourse.hibernateAdvancedMappings.entity.Instructor;
+import com.springCourse.hibernateAdvancedMappings.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
@@ -32,6 +33,11 @@ public class AppDAOImpl implements AppDAO {
 
         // delete the instructor
         entityManager.remove(tempInstructor);
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int theId) {
+        return entityManager.find(InstructorDetail.class, theId);
     }
 
 }
