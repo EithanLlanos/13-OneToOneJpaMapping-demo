@@ -9,8 +9,9 @@ public class InstructorDetail {
     // Define the fields
     // Annotate the fields with db column name
 
-
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    // Here you define if you want to use cascade in any method, in this example it will use cascade in all implemented methods except delete
+//    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
     private Instructor instructor;
 
     @Id
@@ -45,7 +46,7 @@ public class InstructorDetail {
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
     }
-    
+
     public int getId() {
         return id;
     }

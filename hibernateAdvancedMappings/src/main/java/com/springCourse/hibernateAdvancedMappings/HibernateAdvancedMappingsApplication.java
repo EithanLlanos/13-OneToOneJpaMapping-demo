@@ -28,7 +28,7 @@ public class HibernateAdvancedMappingsApplication {
     }
 
     private void deleteInstructorDetail(AppDAO appDAO) {
-        int theId = 4;
+        int theId = 5;
         appDAO.deleteInstructorDetailById(theId);
     }
 
