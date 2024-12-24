@@ -1,4 +1,4 @@
-# 13-hibernateAdvancedMappings-demo
+# 13-OneToOneJpaMapping-demo
 The following dependencies were included using Spring Initializr:
 
 - MySQL Driver
